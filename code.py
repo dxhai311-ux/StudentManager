@@ -4,6 +4,8 @@ class Student:
 		self.ten = ten
 		self.score = score
 
+
+
 	def __str__(self):
 		return f"{self.ten} {self.score}"
 
@@ -16,12 +18,13 @@ if __name__ == '__main__':
 	}
 	check = True
 	while check:
-		print('===== Student Manager =====')
+		print('\n===== Student Manager =====')
 		print('1. Show students')
 		print('2. Add student')
 		print('3. Average score calculation')
 		print('4. Top student')
-		print('5. Exit')
+		print('5. Delete student')
+		print('6. Exit')
 		select = int(input('Enter choice : '))
 		if select == 1:
 			for name, score in students.items():
@@ -35,12 +38,23 @@ if __name__ == '__main__':
 			except ValueError:
 				print('Invalid score')	
 		elif select == 3:
-			res = sum(float(score) for name, score in students.items()) / len(students)
+			res = sum(score for name, score in students.items()) / len(students)
 			print(f"Average score : {res:.2f}")
 		elif select == 4:
 			top_name, top_score = max(students.items(), key = lambda x : x[1])
 			print(f"Top student : {top_name} - {top_score}")
 		elif select == 5:
+			name_del = input('Enter name to delete :')
+			found = False
+			for name in list(students.keys()):
+				if name.title() == name_del.title():
+					students.pop(name)
+					found = True
+					print('Delete succesfully')
+					break
+			if not found:
+				print('Invalid name')
+		elif select == 6:
 			check = False
 		else:
 			print('Invalid select')
