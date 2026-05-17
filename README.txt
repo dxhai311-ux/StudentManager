@@ -1,56 +1,34 @@
 # Student Manager CLI
 
-Simple Python CLI application for managing students.
+A simple Student Management System built with Python CLI.
 
 ## Features
 
-* Show all students
-* Add new student
-* Calculate average score
-* Find top student
-* Input validation with try-except
+- Show students
+- Add student
+- Delete student
+- Update score
+- Search student
+- Calculate average score
+- Find top student
+- Save data with JSON
+- Load data automatically
 
-## Technologies
+---
 
-* Python
-* OOP (Object-Oriented Programming)
-* Git & GitHub
+## Technologies Used
+
+- Python
+- JSON
+- Git & GitHub
+
+---
 
 ## Project Structure
 
-```text
-student-manager-cli/
+```bash
+student-manager/
 │
 ├── main.py
-├── README.md
-```
-
-## Run Project
-
-```bash
-python code.py
-```
-
-## Example Menu
-
-```text
-===== Student Manager =====
-1. Show students
-2. Add student
-3. Average score calculation
-4. Top student
-5. Exit
-```
-
-## Learning Goals
-
-This project was created to practice:
-
-* Python fundamentals
-* Classes and objects
-* Loops and conditions
-* Error handling
-* GitHub workflow
-
-```
-```
+├── students.json
+└── README.md
