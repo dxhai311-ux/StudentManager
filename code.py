@@ -24,7 +24,8 @@ if __name__ == '__main__':
 		print('3. Average score calculation')
 		print('4. Top student')
 		print('5. Delete student')
-		print('6. Exit')
+		print('6. Update score')
+		print('7. Exit')
 		select = int(input('Enter choice : '))
 		if select == 1:
 			for name, score in students.items():
@@ -55,6 +56,17 @@ if __name__ == '__main__':
 			if not found:
 				print('Invalid name')
 		elif select == 6:
+			name_update = input('Enter student name :')
+			score_update = float(input('Enter new score :'))
+			check = False
+			for name, score in students.items():
+				if name == name_update:
+					check = True
+					students[name] = score_update
+					break
+			if not check:
+				print('Invalid name')
+		elif select == 7:
 			check = False
 		else:
 			print('Invalid select')
