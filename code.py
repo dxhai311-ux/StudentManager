@@ -25,7 +25,8 @@ if __name__ == '__main__':
 		print('4. Top student')
 		print('5. Delete student')
 		print('6. Update score')
-		print('7. Exit')
+		print('7. Search student')
+		print('8. Exit')
 		select = int(input('Enter choice : '))
 		if select == 1:
 			for name, score in students.items():
@@ -58,15 +59,26 @@ if __name__ == '__main__':
 		elif select == 6:
 			name_update = input('Enter student name :')
 			score_update = float(input('Enter new score :'))
-			check = False
-			for name, score in students.items():
-				if name == name_update:
-					check = True
+			found = False
+			for name in list(students.keys()):
+				if name.title() == name_update.title():
+					found = True
 					students[name] = score_update
+					print('Update succesfully!')
 					break
-			if not check:
+			if not found:
 				print('Invalid name')
 		elif select == 7:
+			name_search = input('Enter name search :')
+			found = False
+			for name, score in students.items():
+				if name.title() == name_search.title():
+					print(name, score, sep = ' - ')
+					found = True
+					break
+			if not found:
+				print("No search student")
+		elif select == 8:
 			check = False
 		else:
 			print('Invalid select')
