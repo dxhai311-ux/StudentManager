@@ -21,6 +21,22 @@ def add_student(students):
 	else:
 		print('Student already exists')
 
+def get_avg(students):
+	if not students:
+		print('No students')
+		return
+
+	res = sum(score for name, score in students.items()) / len(students)
+	print(f"Average score : {res:.2f}")
+
+def get_top(students):
+	if not students:
+		print('No students')
+		return
+
+	top_name, top_score = max(students.items(), key = lambda x : x[1])
+	print(f"Top student : {top_name} - {top_score}")
+
 def delete_student(students):
 	name_del = input('Enter name to delete :').title()
 	if name_del in students:
@@ -52,3 +68,22 @@ def search_student(students):
 		print(name_search, students[name_search], sep = ' - ')
 	else:
 		print('Student not found')
+
+def sort_student(students):
+	if not students:
+		print('No students')
+		return
+
+	print('\nDANH SACH SAP XEP :')
+	sort_list = sorted(students.items(), key = lambda x : x[1], reverse = True)
+	for name, score in sort_list:
+		print(f"{name} - {score}")
+
+def filter_score(students):
+	if not students:
+		print('No students')
+		return
+
+	for ten, score in students.items():
+		sv = Student(ten, score)
+		print(f"{sv.ten} - {sv.score} - {sv.filter_by_score()}")
